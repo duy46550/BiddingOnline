@@ -5,108 +5,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Bidding</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
+<?php
+session_start();
+if (isset($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
+} elseif (!isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = 'vn';
+}
+if ($_SESSION['lang'] == 'vn') {
+    include('./language/vn.php');
+} elseif ($_SESSION['lang'] == 'en') {
+    include('./language/en.php');
+}
+?>
 
 <body>
     <header class="header_area">
-        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
-            <!-- Left -->
-            <nav class="classy-navbar">
-                <a class="nav-brand" href="index.php"><img src="img/core-img/lhglogo.PNG" alt=""></a>
-                <!-- Mobile Menu -->
-                <div class="classy-navbar-toggler">
-                    <a href="index.php">Home</a>
-                    <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-expanded="false">Category</a>
-                    <div class="dropdown-menu" style="width: 100px;">
-                        <a class="dropdown-item" href="Material.php?category=1">Category 1</a>
-                        <a class="dropdown-item" href="Material.php?category=2">Category 2</a>
-                        <a class="dropdown-item" href="Material.php?category=3">Category 3</a>
-                    </div>
-                    <a href="#">Contact</a>
-                </div>
-                <!-- Desktop Menu -->
-                <div class="classy-menu">
-                    <div class="classynav">
-                        <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Category</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="Material.php?category=1">Category 1</a>
-                                    <a class="dropdown-item" href="Material.php?category=2">Category 2</a>
-                                    <a class="dropdown-item" href="Material.php?category=3">Category 3</a>
-                                </div>
-                            </li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Right -->
-            <div class="header-meta d-flex clearfix justify-content-end">
-                <!-- Search -->
-                <div class="search-area">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light headernavbar">
+            <a class="nav-brand font-bold" href="index.php" style="font-size: 25px;color:black;">LAC TY II &nbsp;&nbsp;</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="index.php" style="font-size: 15px;"><?php echo $lang_header_home; ?> <span class="sr-only">(current)</span></a>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"> <?php echo $lang_header_category; ?></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="material.php?category=1" style="font-size: 15px;"><?php echo $lang_header_category_paper; ?></a>
+                            <a class="dropdown-item" href="material.php?category=2" style="font-size: 15px;"><?php echo $lang_header_category_fabric; ?></a>
+                            <a class="dropdown-item" href="material.php?category=3" style="font-size: 15px;"><?php echo $lang_header_category_leather; ?></a>
+                            <a class="dropdown-item" href="material.php?category=4" style="font-size: 15px;"><?php echo $lang_header_category_machine; ?></a>
+                        </div>
+                    </li>
+                    <li><a class="nav-link" href="#" style="font-size: 15px;"><?php echo $lang_header_contact; ?> </a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"> <?php echo $lang_header_language; ?></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="index.php?lang=en" style="font-size: 15px;"><?php echo $lang_header_language_e;
+                                                                                                        if ($_SESSION['lang'] == 'en') {
+                                                                                                            echo "<i class='fas fa-check'></i>";
+                                                                                                        } ?></a>
+                            <a class="dropdown-item" href="index.php?lang=vn" style="font-size: 15px;"><?php echo $lang_header_language_v;
+                                                                                                        if ($_SESSION['lang'] == 'vn') {
+                                                                                                            echo "<i class='fas fa-check'></i>";
+                                                                                                        } ?></a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <div class="search-area">
                     <form action="#" method="post">
-                        <input type="search" name="search" id="headerSearch" placeholder="Type for search" autocomplete="off">
+                        <input type="search" name="search" id="headerSearch" placeholder="<?php echo $lang_header_search; ?>" autocomplete="off">
                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
+                </div> -->
+                <div class="user-login-color  user-login">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" data-toggle="modal" data-target="#modalLoginForm" style="font-size: 15px;"><?php echo $lang_header_sign; ?></a>
+                        </li>
+                    </ul>
                 </div>
-                <!-- SSO -->
-                <div class="user-login-info user-login-color">
-                    <a href="#" data-toggle="modal" data-target="#modalLoginForm">Sign In</a>
-                </div>
-                <div class="user-login-info">
-                    <div class="dropdown show">
-                        <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="img/core-img/user.svg" alt="">
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-img" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" style="line-height: 50px;" href="#">Dashboard</a>
-                            <a class="dropdown-item" style="line-height: 50px;" href="#">My Profile</a>
-                            <a class="dropdown-item" style="line-height: 50px;" href="#">Reset Password</a>
-                            <a class="dropdown-item" style="line-height: 50px;" href="#">Logout</a>
-                        </div>
-                    </div>
+                <div class="user-login-color user-account">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"><i class="fas fa-user"></i>&nbsp; <?php echo $lang_header_account; ?></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="./admin/index.php"><i class="fas fa-table"></i> <?php echo $lang_header_account_dashboard; ?></a>
+                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-sync-alt"></i> <?php echo $lang_header_account_resetpassword; ?></a>
+                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-power-off"></i> <?php echo $lang_header_account_logout; ?></a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
+
     <!-- Sign In  -->
     <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 10%;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Sign In</h4>
+                    <h4 class="modal-title w-100 font-weight-bold"><?php echo $lang_header_sign; ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <form action="index.php" method="post">
                     <div class="modal-body mx-3">
-                        <div class="alert alert-danger" role="alert">
+                        <!-- <div class="alert alert-danger" role="alert">
                             <strong>Username</strong> or <strong>password</strong> incorrect!
-                        </div>
+                        </div> -->
                         <div class="md-form mb-4">
                             <b><Label>Email</Label></b>
                             <i class="fas fa-envelope"></i>
                             <input type="email" id="defaultForm-email" required="true" class="form-control validate" placeholder="Email">
                         </div>
                         <div class="md-form mb-4">
-                            <b><Label>Password</Label></b>
+                            <b><Label><?php echo $lang_header_sign_pass; ?></Label></b>
                             <i class="fas fa-lock"></i>
-                            <input type="password" id="defaultForm-pass" required="true" class="form-control validate" placeholder="Password">
+                            <input type="password" id="defaultForm-pass" required="true" class="form-control validate" placeholder="<?php echo $lang_header_sign_pass; ?>">
                         </div>
 
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary">Sign In</button>
+                            <button class="btn btn-primary"><?php echo $lang_header_sign; ?></button>
                         </div>
                     </div>
                 </form>
                 <div class="modal-footer d-flex justify-content-center">
-                    <div class="signup-section">Not a member yet? <a href="#a" class="text-info" data-dismiss="modal" data-toggle="modal" data-target="#modalRegisterForm"> Sign Up</a>.</div>
+                    <div class="signup-section"><?php echo $lang_header_sign_footer; ?> <a href="#a" class="text-info" data-dismiss="modal" data-toggle="modal" data-target="#modalRegisterForm"> <?php echo $_lang_header_signup; ?></a>.</div>
                 </div>
             </div>
         </div>
@@ -116,7 +130,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Sign Up</h4>
+                    <h4 class="modal-title w-100 font-weight-bold"><?php echo $_lang_header_signup_title; ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -124,24 +138,24 @@
                 <form action="index.php" method="post">
                     <div class="modal-body">
                         <div class="md-form mb-3">
-                            <b><Label>Company Name</Label></b>
+                            <b><Label><?php echo $_lang_header_signup_company; ?></Label></b>
                             <i class="fas fa-building"></i>
-                            <input type="text" required="true" class="form-control" placeholder="Company Name">
+                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_company; ?>">
                         </div>
                         <div class="md-form mb-3">
-                            <b><Label>Phone Number</Label></b>
+                            <b><Label><?php echo $_lang_header_signup_phone; ?></Label></b>
                             <i class="fas fa-phone-square"></i>
-                            <input type="text" required="true" class="form-control" placeholder="Phone Number">
+                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_phone; ?>">
                         </div>
                         <div class="md-form mb-3">
-                            <b><Label>Address</Label></b>
+                            <b><Label><?php echo $_lang_header_signup_address; ?></Label></b>
                             <i class="fas fa-map-marked-alt"></i>
-                            <input type="text" required="true" class="form-control" placeholder="Address">
+                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_address; ?>">
                         </div>
                         <div class="md-form mb-3">
-                            <b><Label>Tax Code</Label></b>
+                            <b><Label><?php echo $_lang_header_signup_taxcode; ?></Label></b>
                             <i class="fas fa-info-circle"></i>
-                            <input type="text" required="true" class="form-control" placeholder="Tax Code">
+                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_taxcode; ?>">
                         </div>
                         <div class="md-form mb-3">
                             <b><Label>Email</Label></b>
@@ -149,14 +163,13 @@
                             <input type="email" id="defaultForm-email" required="true" class="form-control validate" placeholder="Email">
                         </div>
                         <div class="md-form mb-3">
-                            <b><Label>Password</Label></b>
+                            <b><Label><?php echo $_lang_header_signup_pass; ?></Label></b>
                             <i class="fas fa-lock"></i>
-                            <input type="password" id="defaultForm-pass" required="true" class="form-control validate" placeholder="Password">
+                            <input type="password" id="defaultForm-pass" required="true" class="form-control validate" placeholder="<?php echo $_lang_header_signup_pass; ?>">
                         </div>
                     </div>
-
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary">Register</button>
+                        <button class="btn btn-primary"><?php echo $_lang_header_signup_footer; ?></button>
                     </div>
                 </form>
             </div>
