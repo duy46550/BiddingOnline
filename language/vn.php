@@ -37,7 +37,7 @@ $lang_banner_view ="Xem";
 $lang_material_notification = "Đăng nhập để xem các yêu cầu vật tư!";
 $lang_material_notification_click ="Nhấn vào đây";
 
-$lang_material_name = "Tên vật tư";
+$lang_material_name = "Tên Vật Tư";
 $lang_material_quarter = "Quý ";
 $lang_material_company = "Công Ty Đấu Thầu";
 $lang_material_detail = "Chi Tiết";

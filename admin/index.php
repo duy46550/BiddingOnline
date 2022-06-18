@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Addmin</title>
+    <title>Admin</title>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
@@ -24,7 +24,7 @@
             </div>
             <ul class="list-unstyled components">
                 <p style="font-weight: 400;">Bảng Điều Khiển</p>
-                <li >
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Yêu Cầu Vật Tư</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -77,11 +77,11 @@
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-bars"></i>
                         <!-- <span>Dashboard</span> -->
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
+                    <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-angle-down"></i>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -98,7 +98,86 @@
                     </div>
                 </div>
             </nav>
-
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Mã Vật Tư</th>
+                        <th>Tên Vật Tư</th>
+                        <th>Quy cách</th>
+                        <th>Đơn Vị</th>
+                        <th>Tình Trạng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Vật Tư 1</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">10 Hộp/ Thùng</p>
+                        </td>
+                        <td>Thùng</td>
+                        <td>
+                            <span class="badge badge-success rounded-pill d-inline">Qua</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                                Hình Ảnh
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Vật Tư 2</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">15 Hộp/ Thùng</p>
+                        </td>
+                        <td>Thùng</td>
+                        <td>
+                            <span class="badge badge-danger rounded-pill d-inline">Bác Bỏ</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                                Hình Ảnh
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Vật Tư 3</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">20 Hộp/ Thùng</p>
+                        </td>
+                        <td>Thùng</td>
+                        <td>
+                            <span class="badge badge-warning rounded-pill d-inline">Đang Chờ</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                                Hình Ảnh
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
     </div>

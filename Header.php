@@ -77,7 +77,7 @@ if ($_SESSION['lang'] == 'vn') {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"><i class="fas fa-user"></i>&nbsp; <?php echo $lang_header_account; ?></a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="./admin/index.php"><i class="fas fa-table"></i> <?php echo $lang_header_account_dashboard; ?></a>
+                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="./admin/index.php"><i class="fas fa-user-edit"></i> <?php echo $lang_header_account_dashboard; ?></a>
                                 <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-sync-alt"></i> <?php echo $lang_header_account_resetpassword; ?></a>
                                 <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-power-off"></i> <?php echo $lang_header_account_logout; ?></a>
                             </div>

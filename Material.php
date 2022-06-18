@@ -25,7 +25,6 @@ if ($dt >= 1 && $dt <= 3) {
 } elseif ($dt >= 10 && $dt <= 12) {
     $Q = 4;
 }
-
 if (isset($_POST['submit'])) {
     echo $_POST['material_code'];
     echo "-";
@@ -41,7 +40,7 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
-<section class="section-padding-40" style="margin-left: 100px;margin-right: 20px;">
+<section class="section-padding-40 material-page">
     <div class="row">
         <div class="material-topbar d-flex justify-content-between">
             <div class="btn-group btn-breadcrumb" aria-label="breadcrumb">
@@ -64,37 +63,54 @@ if (isset($_POST['submit'])) {
     <div class="row ">
         <div class="table-responsive" style="max-height: 700px;">
             <table class="table table-bordered table-striped table-highlight" style="text-align: center;">
-                <thead>
-                    <th style="width: 200px"><?php echo $lang_material_name;  ?></th>
-                    <th><?php echo $lang_material_quarter; ?> 1</th>
-                    <th><?php echo $lang_material_quarter; ?> 2</th>
-                    <th><?php echo $lang_material_quarter; ?> 3</th>
-                    <th><?php echo $lang_material_quarter; ?> 4</th>
-                    <th style="width: 180px"><?php echo $lang_material_company;  ?></th>
-                    <th colspan="2"></th>
+                <thead class="material-thead">
+                    <th style="width: 200px;vertical-align: middle;"><?php echo $lang_material_name;  ?></th>
+                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 1</th>
+                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 2</th>
+                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 3</th>
+                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 4</th>
+                    <th style="width: 180px;vertical-align: middle;"><?php echo $lang_material_company;  ?></th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <?php for ($i = 1; $i < 10; $i++) { ?>
                         <tr>
                             <form class="form-horizontal" action="#" method="POST">
                                 <input type="text" name="material_code" class="form-control" hidden value=<?php echo $i; ?> />
-                                <td> Giấy <?php echo $i; ?> </td>
-                                <td><input type="text" name="material_Q1" required="true" class="form-control" <?php if ($Q != 1) {
-                                                                                                                    echo "disabled";
-                                                                                                                } ?> autocomplete="off" /></td>
-                                <td><input type="text" name="material_Q2" required="true" class="form-control" <?php if ($Q != 2) {
-                                                                                                                    echo "disabled";
-                                                                                                                } ?> autocomplete="off" /></td>
-                                <td><input type="text" name="material_Q3" required="true" class="form-control" <?php if ($Q != 3) {
-                                                                                                                    echo "disabled";
-                                                                                                                } ?> autocomplete="off" /></td>
-                                <td><input type="text" name="material_Q4" required="true" class="form-control" <?php if ($Q != 4) {
-                                                                                                                    echo "disabled";
-                                                                                                                } ?> autocomplete="off" /></td>
-                                <td> 5 </td>
-                                <td colspan="2">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><?php echo $lang_material_detail; ?></button>
-                                    <input type="submit" name="submit" class="btn btn-success" value="<?php echo $lang_material_send; ?>">
+                                <td style="vertical-align: middle;"> Giấy <?php echo $i; ?> </td>
+                                <td style="vertical-align: middle;"><input type="text" name="material_Q1" required="true" class="form-control" <?php if ($Q != 1) {
+                                                                                                                                                    echo "disabled";
+                                                                                                                                                } ?> autocomplete="off" />
+                                    <?php if ($Q == 1) { ?>
+                                        <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
+                                    <?php } ?>
+
+                                </td>
+                                <td style="vertical-align: middle;"><input type="text" name="material_Q2" required="true" class="form-control" <?php if ($Q != 2) {
+                                                                                                                                                    echo "disabled";
+                                                                                                                                                } ?> autocomplete="off" />
+                                    <?php if ($Q == 2) { ?>
+                                        <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
+                                    <?php } ?>
+                                </td>
+                                <td style="vertical-align: middle;"><input type="text" name="material_Q3" required="true" class="form-control" <?php if ($Q != 3) {
+                                                                                                                                                    echo "disabled";
+                                                                                                                                                } ?> autocomplete="off" />
+                                    <?php if ($Q == 3) { ?>
+                                        <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
+                                    <?php } ?>
+                                </td>
+                                <td style="vertical-align: middle;"><input type="text" name="material_Q4" required="true" class="form-control" <?php if ($Q != 4) {
+                                                                                                                                                    echo "disabled";
+                                                                                                                                                } ?> autocomplete="off" />
+                                    <?php if ($Q == 4) { ?>
+                                        <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
+                                    <?php } ?>
+                                </td>
+                                <td style="vertical-align: middle;"> 5 </td>
+                                <td style="vertical-align: middle;">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-toggle="modal" data-target=".bd-example-modal-lg"><?php echo $lang_material_detail; ?></button>
+                                    <!-- <input type="submit" name="submit" class="btn btn-success" value="<?php echo $lang_material_send; ?>"> -->
                                 </td>
                             </form>
                         </tr>
