@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
         echo $_POST['material_Q2'];
     } elseif (isset($_POST['material_Q3'])) {
         echo $_POST['material_Q3'];
-    } elseif (isset($_POST['material_Q4'])) {
+    } elseif (isset($_POST['material_Q4'])) { 
         echo $_POST['material_Q4'];
     }
 }
@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
         </div>
     </div> -->
     <div class="row ">
-        <div class="table-responsive" style="max-height: 700px;">
+        <div class="table-responsive tableFixHead" style="max-height: 650px;">
             <table class="table table-bordered table-striped table-highlight" style="text-align: center;">
                 <thead class="material-thead">
                     <th style="width: 200px;vertical-align: middle;"><?php echo $lang_material_name;  ?></th>
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
                                                                                                                                                     echo "disabled";
                                                                                                                                                 } ?> autocomplete="off" />
                                     <?php if ($Q == 2) { ?>
-                                        <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
+                                          <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
                                     <?php } ?>
                                 </td>
                                 <td style="vertical-align: middle;"><input type="text" name="material_Q3" required="true" class="form-control" <?php if ($Q != 3) {
@@ -201,7 +201,6 @@ if (isset($_POST['submit'])) {
                             <option value="4" <?php if ($Q == 4) {
                                                     echo "selected";
                                                 } ?>><?php echo $lang_material_quarter; ?> 4</option>
-
                         </select>
                     </div>
                     <div class="md-form mb-4">

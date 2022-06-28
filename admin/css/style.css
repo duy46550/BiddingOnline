@@ -96,8 +96,8 @@ a:focus {
 
 #sidebar ul li.active > a,
 a[aria-expanded="true"] {
-  color: #fff;
-  background: #7386d5;
+  color: #687bc5;
+  background: #f0f0f0;
 }
 
 a[data-toggle="collapse"] {
@@ -179,5 +179,19 @@ a.article:hover {
   background: none !important;
 }
 .account-user:hover {
-  color: #6d6d6d !important;
+  color: #555555 !important;
+}
+.btn-ds:hover{
+  background-color: white !important;
+  color: #005eac !important;
+}
+
+.middles{
+  vertical-align: middle !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .btn-tk{
+      margin-top: 30px !important;
+  }
 }
