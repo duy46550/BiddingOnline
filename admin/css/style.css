@@ -4,12 +4,11 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: Arial,sans-serif !important;
   background: #fafafa;
 }
 
 p {
-  font-family: "Poppins", sans-serif;
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
@@ -182,16 +181,45 @@ a.article:hover {
   color: #555555 !important;
 }
 .btn-ds:hover{
-  background-color: white !important;
+  background-color: transparent !important;
   color: #005eac !important;
 }
 
 .middles{
   vertical-align: middle !important;
+  min-width: 180px;
 }
-
+.middles80{
+  vertical-align: middle !important;
+  min-width: 80px;
+}
+.middles100{
+  vertical-align: middle !important;
+  min-width: 100px;
+}
+.middles120{
+  vertical-align: middle !important;
+  min-width: 120px;
+}
+.middles150{
+  vertical-align: middle !important;
+  min-width: 150px;
+}
 @media only screen and (max-width: 600px) {
   .btn-tk{
       margin-top: 30px !important;
   }
+}
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='blue' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='blue' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.modal-body .carousel-control-prev:hover{
+  background-color: transparent !important;
+}
+.modal-body .carousel-control-next:hover{
+  background-color: transparent !important;
 }

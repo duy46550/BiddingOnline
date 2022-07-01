@@ -64,12 +64,12 @@ if (isset($_POST['submit'])) {
         <div class="table-responsive tableFixHead" style="max-height: 650px;">
             <table class="table table-bordered table-striped table-highlight" style="text-align: center;">
                 <thead class="material-thead">
-                    <th style="width: 200px;vertical-align: middle;"><?php echo $lang_material_name;  ?></th>
-                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 1</th>
-                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 2</th>
-                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 3</th>
-                    <th style="vertical-align: middle;"><?php echo $lang_material_quarter; ?> 4</th>
-                    <th style="width: 180px;vertical-align: middle;"><?php echo $lang_material_company;  ?></th>
+                    <th class="middles"><?php echo $lang_material_name;  ?></th>
+                    <th class="middles"><?php echo $lang_material_quarter; ?> 1</th>
+                    <th class="middles"><?php echo $lang_material_quarter; ?> 2</th>
+                    <th class="middles"><?php echo $lang_material_quarter; ?> 3</th>
+                    <th class="middles"><?php echo $lang_material_quarter; ?> 4</th>
+                    <th class="middles"><?php echo $lang_material_company;  ?></th>
                     <th></th>
                 </thead>
                 <tbody>

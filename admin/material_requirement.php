@@ -25,20 +25,20 @@
         </form>
     </div>
 </div>
-<div class="table-responsive" style="max-height: 700px; margin-top:5px;">
+<div class="table-responsive" style="max-height: 700px; margin-top:5px;max-width: 100%;">
     <table class="table align-middle mb-0 bg-white table-striped">
         <thead class="bg-light">
             <tr>
-                <th class="middles">Mã Vật Tư</th>
-                <th class="middles">Tên Vật Tư</th>
-                <th class="middles">Loại Vật Tư</th>
-                <th class="middles">Quy cách</th>
-                <th class="middles">Đơn Vị</th>
-                <th class="middles">Năm</th>
-                <th class="middles">Tình Trạng</th>
-                <th class="middles">Thông Tin</th>
-                <th class="middles">Hành Động</th>
-                <th class="middles">Xác Nhận</th>
+                <th class="middles120">Mã Vật Tư</th>
+                <th class="middles120">Tên Vật Tư</th>
+                <th class="middles120">Loại Vật Tư</th>
+                <th class="middles120">Quy cách</th>
+                <th class="middles80">Đơn Vị</th>
+                <th class="middles80">Năm</th>
+                <th class="middles120">Tình Trạng</th>
+                <th class="middles100">Thông Tin</th>
+                <th style="min-width: 200px;">Hành Động</th>
+                <th style="min-width: 200px;">Xác Nhận</th>
             </tr>
         </thead>
         <tbody>
@@ -63,7 +63,7 @@
                     <span class="badge badge-success rounded-pill d-inline">Đã Duyệt</span>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-toggle="modal" data-target=".showImage">
                         Hình Ảnh
                     </button>
                     <a href="index.php?r=lr" class="btn btn-link btn-ds" role="button" style="font-size: 15px;">DS Báo Giá</a>
@@ -81,13 +81,12 @@
                 </td>
                 <td>
                     <!-- <button type="button" class="btn btn-primary btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
-                                    <i class="fas fa-check-circle"></i> Duyệt
-                                </button> -->
+                            <i class="fas fa-check-circle"></i> Duyệt
+                        </button> -->
                     <button type="button" class="btn btn-danger btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
                         <i class="fas fa-times-circle"></i> Hủy bỏ
                     </button>
                 </td>
-
             </tr>
             <tr>
                 <td>2</td>
@@ -111,7 +110,7 @@
                     <span class="badge badge-warning rounded-pill d-inline">Đang Chờ</span>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-toggle="modal" data-target=".showImage">
                         Hình Ảnh
                     </button>
                 </td>
@@ -149,7 +148,7 @@
                     <span class="badge badge-warning rounded-pill d-inline">Đang Chờ</span>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-toggle="modal" data-target=".showImage">
                         Hình Ảnh
                     </button>
                 </td>
@@ -172,4 +171,40 @@
             </tr>
         </tbody>
     </table>
+</div>
+<!--Show Image -->
+<div class="modal fade showImage" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="margin-top: 50px;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Hình Ảnh Vật Tư</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner card">
+                        <div class="carousel-item active">
+                            <img src="../img/material-img/material-1-1.jpg" style="width:700px; height: 500px;" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../img/material-img/material-1-2.jpg" style="width:700px; height: 500px;" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../img/material-img/material-1-3.jpg" style="width:700px; height: 500px;" alt="">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

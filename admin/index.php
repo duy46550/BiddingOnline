@@ -44,11 +44,13 @@ if ($_SESSION['lang'] == 'vn') {
                 <li <?php if (@$r == 'lr') {echo "class='active'";} ?>>
                     <a href="index.php?r=lr">Danh Sách Báo Giá</a>
                 </li>
-                <li>
+                <!-- <li <?php if (@$r == 'cb') {echo "class='active'";} ?>>
+                    <a href="index.php?r=cb">Thông Tin Nhà Cung Ứng</a>
+                </li> -->
+                <li <?php if (@$r == 'ac') {echo "class='active'";} ?>>
                     <a href="index.php?r=ac">Quản Lý Tài Khoản</a>
                 </li>
             </ul>
-
             <ul class="list-unstyled CTAs">
                 <li>
                     <a href="../index.php" class="article"><i class="fas fa-caret-left"></i> Trở lại trang chủ</a>
@@ -66,9 +68,7 @@ if ($_SESSION['lang'] == 'vn') {
                     <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-angle-down"></i>
                     </button>
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item dropdown">
                                 <a class="nav-link account-user" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"> <?php echo $lang_header_language; ?></a>
