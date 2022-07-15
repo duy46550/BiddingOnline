@@ -28,13 +28,13 @@ if ($dt >= 1 && $dt <= 3) {
 if (isset($_POST['submit'])) {
     echo $_POST['material_code'];
     echo "-";
-    if (isset($_POST['material_Q1'])) {
+    if (isset($_POST['material_Q1']) && $Q == 1) {
         echo $_POST['material_Q1'];
-    } elseif (isset($_POST['material_Q2'])) {
+    } elseif (isset($_POST['material_Q2']) && $Q == 2) {
         echo $_POST['material_Q2'];
-    } elseif (isset($_POST['material_Q3'])) {
+    } elseif (isset($_POST['material_Q3']) && $Q == 3) {
         echo $_POST['material_Q3'];
-    } elseif (isset($_POST['material_Q4'])) { 
+    } elseif (isset($_POST['material_Q4']) && $Q == 4) { 
         echo $_POST['material_Q4'];
     }
 }
@@ -110,7 +110,6 @@ if (isset($_POST['submit'])) {
                                 <td style="vertical-align: middle;"> 5 </td>
                                 <td style="vertical-align: middle;">
                                     <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-toggle="modal" data-target=".bd-example-modal-lg"><?php echo $lang_material_detail; ?></button>
-                                    <!-- <input type="submit" name="submit" class="btn btn-success" value="<?php echo $lang_material_send; ?>"> -->
                                 </td>
                             </form>
                         </tr>
@@ -241,8 +240,6 @@ if (isset($_POST['submit'])) {
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/plugins.js"></script>
-<script src="js/classy-nav.min.js"></script>
-<script src="js/func.js"></script>
 </body>
 
 </html>

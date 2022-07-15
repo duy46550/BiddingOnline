@@ -13,6 +13,7 @@
     <!-- Font Awesome JS -->
     <script src="font/solid.js" ></script>
     <script src="font/fontawesome.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <?php
 session_start();
@@ -111,6 +112,7 @@ if ($_SESSION['lang'] == 'vn') {
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Popper.JS -->
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap JS -->

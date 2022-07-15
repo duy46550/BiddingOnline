@@ -115,7 +115,6 @@ if ($_SESSION['lang'] == 'vn') {
                             <i class="fas fa-lock"></i>
                             <input type="password" id="defaultForm-pass" required="true" class="form-control validate" placeholder="<?php echo $lang_header_sign_pass; ?>">
                         </div>
-
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-primary"><?php echo $lang_header_sign; ?></button>
                         </div>
@@ -137,43 +136,41 @@ if ($_SESSION['lang'] == 'vn') {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="index.php" method="post">
-                    <div class="modal-body">
-                        <div class="md-form mb-3">
-                            <b><Label><?php echo $_lang_header_signup_company; ?></Label></b>
-                            <i class="fas fa-building"></i>
-                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_company; ?>">
-                        </div>
-                        <div class="md-form mb-3">
-                            <b><Label><?php echo $_lang_header_signup_phone; ?></Label></b>
-                            <i class="fas fa-phone-square"></i>
-                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_phone; ?>">
-                        </div>
-                        <div class="md-form mb-3">
-                            <b><Label><?php echo $_lang_header_signup_address; ?></Label></b>
-                            <i class="fas fa-map-marked-alt"></i>
-                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_address; ?>">
-                        </div>
-                        <div class="md-form mb-3">
-                            <b><Label><?php echo $_lang_header_signup_taxcode; ?></Label></b>
-                            <i class="fas fa-info-circle"></i>
-                            <input type="text" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_taxcode; ?>">
-                        </div>
-                        <div class="md-form mb-3">
-                            <b><Label>Email</Label></b>
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="defaultForm-email" required="true" class="form-control validate" placeholder="Email">
-                        </div>
-                        <div class="md-form mb-3">
-                            <b><Label><?php echo $_lang_header_signup_pass; ?></Label></b>
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="defaultForm-pass" required="true" class="form-control validate" placeholder="<?php echo $_lang_header_signup_pass; ?>">
-                        </div>
+                <div class="modal-body">
+                    <div class="md-form mb-3">
+                        <b><Label><?php echo $_lang_header_signup_company; ?></Label></b>
+                        <i class="fas fa-building"></i>
+                        <input type="text" id="company_name" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_company; ?>">
                     </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary"><?php echo $_lang_header_signup_footer; ?></button>
+                    <div class="md-form mb-3">
+                        <b><Label><?php echo $_lang_header_signup_phone; ?></Label></b>
+                        <i class="fas fa-phone-square"></i>
+                        <input type="text" id="company_phone" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_phone; ?>">
                     </div>
-                </form>
+                    <div class="md-form mb-3">
+                        <b><Label><?php echo $_lang_header_signup_address; ?></Label></b>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="company_address" required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_address; ?>">
+                    </div>
+                    <div class="md-form mb-3">
+                        <b><Label><?php echo $_lang_header_signup_taxcode; ?></Label></b>
+                        <i class="fas fa-info-circle"></i>
+                        <input type="text" id="company_taxcode"  required="true" class="form-control" placeholder="<?php echo $_lang_header_signup_taxcode; ?>">
+                    </div>
+                    <div class="md-form mb-3">
+                        <b><Label>Email</Label></b>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="company_email" required="true" class="form-control validate" placeholder="Email">
+                    </div>
+                    <div class="md-form mb-3">
+                        <b><Label><?php echo $_lang_header_signup_pass; ?></Label></b>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="company_password" required="true" class="form-control validate" placeholder="<?php echo $_lang_header_signup_pass; ?>">
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-primary"><?php echo $_lang_header_signup_footer; ?></button>
+                </div>
             </div>
         </div>
     </div>

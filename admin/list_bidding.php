@@ -78,11 +78,13 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Thông Tin Công Ty</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h5 class="modal-title card-header" id="exampleModalLabel"><b> Thông Tin Công Ty </b></h5>
+            </div>
+            <div class="modal-body">
                 <div class="card-body" style="font-size: 18px; font-family: sans-serif;">
                     <div class="card-title"> <b> Tên Công Ty:</b> Công Ty A</div>
                     <div class="card-title"> <b> Mã Số Thuế:</b> 0123456789</div>
