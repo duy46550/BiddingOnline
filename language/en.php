@@ -1,4 +1,5 @@
 <?php 
+$yeartitle = "Year ";
 // Header
 $lang_header_home = "Home";
 $lang_header_category = "Category";

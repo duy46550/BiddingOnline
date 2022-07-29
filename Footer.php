@@ -12,10 +12,5 @@
         </div>
     </div>
 </footer>
-<script src="js/jquery/jquery-2.2.4.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

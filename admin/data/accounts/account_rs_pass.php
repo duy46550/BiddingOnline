@@ -15,7 +15,11 @@ $options = [
 //hash password with bcrypt
 $password = password_hash($newpass, PASSWORD_BCRYPT, $options) . "\n";
 
-$sql = "UPDATE users set password = '" . $password . "',userdate = getdate() where username = '" . $userName . "'";
+$update_user = '';
+if (@$_SESSION['update_user'] != '') {
+    $update_user = @$_SESSION['update_user'];
+}
+$sql = "UPDATE users set password = '" . $password . "',update_user = '".$update_user."',update_date = getdate() where username = '" . $userName . "'";
 $rs = odbc_exec($conn_bid, $sql);
 if (odbc_num_rows($rs) > 0) {
     echo "<div class='alert alert-success' role='alert'>
@@ -26,4 +30,3 @@ if (odbc_num_rows($rs) > 0) {
             Cập Nhật Không Thành Công
         </div>";
 }
-?>

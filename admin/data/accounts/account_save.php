@@ -30,30 +30,22 @@ $options = [
 ];
 //hash password with bcrypt
 $password = password_hash($password, PASSWORD_BCRYPT, $options) . "\n";
-
-$sql = "INSERT INTO users VALUES('".$userName."','".$password."','".$level."','Admin','1',getdate())";
+$update_user = '';
+if (@$_SESSION['update_user'] != '') {
+    $update_user = @$_SESSION['update_user'];
+}
+$sql = "INSERT INTO users VALUES('" . $userName . "','" . $password . "','" . $level . "','Admin','1','".$update_user."',getdate())";
 $rs = odbc_exec($conn_bid, $sql);
 if (odbc_num_rows($rs) > 0) {
     echo "<div class='alert alert-success' role='alert'>
             Thêm thành công
         </div>";
-}else{
+} else {
     echo "<div class='alert alert-danger' role='alert'>
             Thêm không thành công
         </div>";
 }
 
-// if (odbc_num_rows($rs) > 0) {
-//     echo "<script>
-//     alert('Thêm Thành Công!');
-//     window.open('index.php?r=ac','_self')
-//     </script>";
-// }else{
-//     echo "<script>
-//     alert('Thêm Không Thành Công!');
-//     window.open('index.php?r=ac','_self')
-//     </script>";
-// }
     // if (password_verify('123', $hash)) {
     //     echo "<div class='alert alert-warning' role='alert'>
     //             Password is valid!
@@ -68,4 +60,3 @@ if (odbc_num_rows($rs) > 0) {
     // echo "<div class='alert alert-success' role='alert'>
     //             Thêm Thành Công
     //         </div>";
-?>

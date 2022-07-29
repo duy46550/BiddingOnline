@@ -11,7 +11,7 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Font Awesome JS -->
-    <script src="font/solid.js" ></script>
+    <script src="font/solid.js"></script>
     <script src="font/fontawesome.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
 </head>
@@ -38,17 +38,20 @@ if ($_SESSION['lang'] == 'vn') {
                 <h3 style="text-align: center; font-weight: 700;"><a href="index.php">LAC TY II</a></h3>
             </div>
             <ul class="list-unstyled components">
-                <p style="font-weight: 500;">Bảng Điều Khiển</p>
-                <li <?php if (@$r == 'mr' or @$r == "") {echo "class='active'";} ?>  >
+                <!-- <p style="font-weight: 500;">Bảng Điều Khiển</p> -->
+                <li <?php if (@$r == 'mr' or @$r == "") {
+                        echo "class='active'";
+                    } ?>>
                     <a href="index.php?r=mr">Yêu Cầu Vật Tư</a>
                 </li>
-                <li <?php if (@$r == 'lr') {echo "class='active'";} ?>>
+                <li <?php if (@$r == 'lr') {
+                        echo "class='active'";
+                    } ?>>
                     <a href="index.php?r=lr">Danh Sách Báo Giá</a>
                 </li>
-                <!-- <li <?php if (@$r == 'cb') {echo "class='active'";} ?>>
-                    <a href="index.php?r=cb">Thông Tin Nhà Cung Ứng</a>
-                </li> -->
-                <li <?php if (@$r == 'ac') {echo "class='active'";} ?>>
+                <li <?php if (@$r == 'ac') {
+                        echo "class='active'";
+                    } ?>>
                     <a href="index.php?r=ac">Quản Lý Tài Khoản</a>
                 </li>
             </ul>
@@ -61,7 +64,6 @@ if ($_SESSION['lang'] == 'vn') {
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-bars"></i>
                         <span>Bảng Điều Khiển</span>
@@ -97,19 +99,16 @@ if ($_SESSION['lang'] == 'vn') {
             </nav>
 
             <?php
-            
             if (@$r == 'mr' or @$r == "") {
                 include('material_requirement.php');
-            }elseif(@$r == 'lr'){
+            } elseif (@$r == 'lr') {
                 include('list_bidding.php');
-            }elseif(@$r== 'ac'){
+            } elseif (@$r == 'ac') {
                 include('account.php');
             }
             ?>
         </div>
     </div>
-
-
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -117,7 +116,6 @@ if ($_SESSION['lang'] == 'vn') {
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="js/bootstrap.min.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function() {
             $('#sidebarCollapse').on('click', function() {

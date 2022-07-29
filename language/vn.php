@@ -1,4 +1,5 @@
 <?php 
+$yeartitle = "Năm ";
 // Header
 $lang_header_home = "Trang Chủ";
 $lang_header_category = "Loại Vật Tư";

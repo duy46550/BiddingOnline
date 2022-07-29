@@ -389,12 +389,12 @@ img {
   line-height: 80px;
 }
 
-.header_area .user-login-color a {
-  color: #858585;
+.header_area .user-login-color {
+  color: white;
 }
 
 .header_area .user-login-color a:hover {
-  color: #444444;
+  color: black;
 }
 
 @media only screen and (max-width: 767px) {
@@ -697,7 +697,7 @@ img {
   }
 }
 .btn-send {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .material-page {
@@ -705,15 +705,19 @@ img {
   margin-right: 50px;
 }
 .material-thead {
-  font-family: Lato-Bold;
+  font-family: sans-serif;
   font-size: 18px;
   color: #fff;
   line-height: 1.4;
-  background-color: #1c77ff;
+  background-color: #AB9CD1;
 }
-
+ 
 .tableFixHead {
   overflow: auto;
+  border: 3px;
+  border-style: outset;
+  border-radius: 3px;
+  border-color: #e7e7e7;
 }
 
 .tableFixHead thead th {
@@ -721,9 +725,17 @@ img {
   top: 0;
   z-index: 1;
   color: #fff;
-  background-color: #1c77ff;
+  background-color: #AB9CD1;
+}
+.tableFixHead tbody td {
+  font-family: sans-serif;
+  font-size: 15px;
 }
 .middles{
   vertical-align: middle !important;
   min-width: 180px;
+  font-weight: bold;
+}
+.dropdown-cate a:hover{
+  color: #000000;
 }

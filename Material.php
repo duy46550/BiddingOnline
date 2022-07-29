@@ -34,15 +34,15 @@ if (isset($_POST['submit'])) {
         echo $_POST['material_Q2'];
     } elseif (isset($_POST['material_Q3']) && $Q == 3) {
         echo $_POST['material_Q3'];
-    } elseif (isset($_POST['material_Q4']) && $Q == 4) { 
+    } elseif (isset($_POST['material_Q4']) && $Q == 4) {
         echo $_POST['material_Q4'];
     }
 }
 
 ?>
 <section class="section-padding-40 material-page">
-    <div class="row">
-        <div class="material-topbar d-flex justify-content-between">
+    <div class="row d-flex">
+        <div class="material-topbar mr-auto p-2">
             <div class="btn-group btn-breadcrumb" aria-label="breadcrumb">
                 <a href="index.php" class="btn btn-default"><i class="fas fa-home"></i></a>
                 <a href="material.php" class="btn btn-default"><?php echo $lang_banner_title;
@@ -54,6 +54,9 @@ if (isset($_POST['submit'])) {
                 ?>
             </div>
         </div>
+        <div class="p-2">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalPreviewForm"> <i class="fas fa-plus-circle"></i> <?php echo $lang_material_preview; ?> </button>
+        </div>
     </div>
     <!-- <div class="d-flex justify-content-center mt-30">
         <div class="alert alert-primary" role="alert">
@@ -61,7 +64,7 @@ if (isset($_POST['submit'])) {
         </div>
     </div> -->
     <div class="row ">
-        <div class="table-responsive tableFixHead" style="max-height: 650px;">
+        <div class="table-responsive tableFixHead" style="max-height: 700px;">
             <table class="table table-bordered table-striped table-highlight" style="text-align: center;">
                 <thead class="material-thead">
                     <th class="middles"><?php echo $lang_material_name;  ?></th>
@@ -77,9 +80,9 @@ if (isset($_POST['submit'])) {
                         <tr>
                             <form class="form-horizontal" action="#" method="POST">
                                 <input type="text" name="material_code" class="form-control" hidden value=<?php echo $i; ?> />
-                                <td style="vertical-align: middle;"> Giấy <?php echo $i; ?> </td>
+                                <td class="middles"> Giấy <?php echo $i; ?> </td>
                                 <td style="vertical-align: middle;"><input type="text" name="material_Q1" required="true" class="form-control" <?php if ($Q != 1) {
-                                                                                                                                                    echo "disabled";
+                                                                                                                                                    echo "readonly";
                                                                                                                                                 } ?> autocomplete="off" />
                                     <?php if ($Q == 1) { ?>
                                         <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
@@ -87,21 +90,21 @@ if (isset($_POST['submit'])) {
 
                                 </td>
                                 <td style="vertical-align: middle;"><input type="text" name="material_Q2" required="true" class="form-control" <?php if ($Q != 2) {
-                                                                                                                                                    echo "disabled";
+                                                                                                                                                    echo "readonly";
                                                                                                                                                 } ?> autocomplete="off" />
                                     <?php if ($Q == 2) { ?>
-                                          <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
+                                        <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
                                     <?php } ?>
                                 </td>
                                 <td style="vertical-align: middle;"><input type="text" name="material_Q3" required="true" class="form-control" <?php if ($Q != 3) {
-                                                                                                                                                    echo "disabled";
+                                                                                                                                                    echo "readonly";
                                                                                                                                                 } ?> autocomplete="off" />
                                     <?php if ($Q == 3) { ?>
                                         <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
                                     <?php } ?>
                                 </td>
                                 <td style="vertical-align: middle;"><input type="text" name="material_Q4" required="true" class="form-control" <?php if ($Q != 4) {
-                                                                                                                                                    echo "disabled";
+                                                                                                                                                    echo "readonly";
                                                                                                                                                 } ?> autocomplete="off" />
                                     <?php if ($Q == 4) { ?>
                                         <input type="submit" name="submit" class="btn btn-primary btn-send" value="<?php echo $lang_material_send; ?>">
@@ -117,9 +120,6 @@ if (isset($_POST['submit'])) {
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="row">
-        <button type="button" class="btn btn-success mt-5" data-toggle="modal" data-target="#modalPreviewForm"> <i class="fas fa-plus-circle"></i> <?php echo $lang_material_preview; ?> </button>
     </div>
 </section>
 <!-- Detail material -->

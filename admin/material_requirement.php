@@ -25,12 +25,16 @@
                     <option>Đã Đóng</option>
                 </select>
             </div>
+            <div class="form-group mx-sm-2 mb-1">
+                <label style="font-weight: 600;font-size: 15px; margin-right: 5px;">Năm:</label>
+                <input type="text" id="yearQ" value="<?php echo date("Y"); ?>" style="width: 100px;" class="form-control validate" >
+            </div>
             <button type="submit" class="btn btn-primary mb-1 btn-tk">Tìm Kiếm</button>
         </form>
     </div>
 </div>
 <div class="table-responsive" style="max-height: 700px; margin-top:5px;max-width: 100%;">
-    <table class="table align-middle mb-0 bg-white table-striped">
+    <table class="table align-middle mb-0 bg-white table-striped table-bordered">
         <thead class="bg-light">
             <tr>
                 <th class="middles120">Mã Vật Tư</th>
@@ -266,6 +270,11 @@
 </div>
 <script>
     $("#datepicker").datepicker({
+    format: "yyyy",
+    startView: "years",
+    minViewMode: "years",
+  });
+  $("#yearQ").datepicker({
     format: "yyyy",
     startView: "years",
     minViewMode: "years",

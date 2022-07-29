@@ -58,7 +58,7 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #7386d5;
+  background: #8292d3;
   color: #fff;
   transition: all 0.3s;
 }
@@ -69,7 +69,16 @@ a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #6879c4;
+  background: #5365b4;
+}
+
+#sidebar .components {
+  background: #7386d5;
+}
+
+.sidebar-header a:hover {
+  padding: 20px;
+  color: #000;
 }
 
 #sidebar ul.components {
@@ -222,4 +231,25 @@ a.article:hover {
 }
 .modal-body .carousel-control-next:hover{
   background-color: transparent !important;
+}
+
+/* Table */
+.table-responsive thead th {
+  background-color: #AB9CD1;
+  color: white;
+}
+table th,td {
+  text-align: center;
+}
+
+.tableFixHead {
+  overflow: auto;
+}
+
+.tableFixHead thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: #fff;
+  background-color: #AB9CD1;
 }

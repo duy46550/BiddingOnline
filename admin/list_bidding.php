@@ -12,7 +12,7 @@
     </div>
 </div>
 <div class="table-responsive" style="max-height: 700px; margin-top:5px;">
-    <table class="table align-middle mb-0 bg-white table-striped">
+    <table class="table align-middle mb-0 bg-white table-striped table-bordered">
         <thead class="bg-light">
             <tr>
                 <th class="middles">Tên Nhà Cung Ứng</th>
@@ -28,11 +28,7 @@
             <tr>
                 <td>Công Ty A</td>
                 <td>
-                    <div class="d-flex align-items-center">
-                        <div class="ms-3">
-                            2022
-                        </div>
-                    </div>
+                    2022
                 </td>
                 <td>
                     0
@@ -51,11 +47,7 @@
             <tr>
                 <td>Công Ty B</td>
                 <td>
-                    <div class="d-flex align-items-center">
-                        <div class="ms-3">
-                            2022
-                        </div>
-                    </div>
+                    2022
                 </td>
                 <td>
                     0
