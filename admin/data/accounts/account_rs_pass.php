@@ -1,5 +1,6 @@
 <?php
 include('../../../conn.php');
+session_start();
 $userName = isset($_POST['userName']) ? $_POST['userName'] : "";
 $newpass  = isset($_POST['newpass']) ? $_POST['newpass'] : "";
 $cfmpass = isset($_POST['cfmpass']) ? $_POST['cfmpass'] : "";
@@ -10,14 +11,14 @@ if ($newpass != $cfmpass) {
     return;
 }
 $options = [
-    'cost' => 10,
+    'cost' => 11,
 ];
 //hash password with bcrypt
-$password = password_hash($newpass, PASSWORD_BCRYPT, $options) . "\n";
+$password = password_hash($newpass, PASSWORD_BCRYPT, $options);
 
 $update_user = '';
-if (@$_SESSION['update_user'] != '') {
-    $update_user = @$_SESSION['update_user'];
+if (@$_SESSION['username'] != '') {
+    $update_user = @$_SESSION['username'];
 }
 $sql = "UPDATE users set password = '" . $password . "',update_user = '".$update_user."',update_date = getdate() where username = '" . $userName . "'";
 $rs = odbc_exec($conn_bid, $sql);

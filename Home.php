@@ -10,16 +10,32 @@ if ($dt >= 1 && $dt <= 3) {
 } elseif ($dt >= 10 && $dt <= 12) {
     $Q = " 4 - ";
 }
+include('./conn_erp.php');
 ?>
+
 <!--Banner -->
-<section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/wellcome.jpg);">
+<!-- <section class="welcome_area bg-img background-overlay" style="background-color: #e7e5e4;">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
-                <div class="hero-content">
-                    <h6> <?php echo $lang_material_quarter;  echo $Q; echo $yeartitle;  echo date("Y"); ?> </h6>
-                    <h2> <?php echo $lang_banner_title; ?></h2>
-                    <a href="material.php" class="btn Detail-btn"><?php echo $lang_banner_view; ?></a>
+                <div class="hero-content" style="text-align: center;">
+                    <h1 class='txtelegantshadow'>LẠC TỶ II</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="welcome_area bg-img background-overlay">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="center-outer">
+                    <div class="center-inner">
+                        <div class="hero-content bubbles">
+                            <h1 >LẠC TỶ II</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -27,6 +43,32 @@ if ($dt >= 1 && $dt <= 3) {
 </section>
 
 <div class="section-padding-40 clearfix">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class=" col-12 mt-15">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01"><?php echo $lang_header_category; ?></label>
+                    </div>
+                    <select class="custom-select" id="category" style="height: 50px;">
+                        <?php
+                        $sql  =  "select distinct ywsm  from CLLBZL where ywsm <> ''  order by ywsm";
+                        $rs = odbc_exec($conn_erp, $sql);
+                        while (odbc_fetch_row($rs)) {
+                            echo "<option value='" . odbc_result($rs, 'ywsm') . "'>" . odbc_result($rs, 'ywsm') . "</option>";
+                        }
+                        ?>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" onclick="showMaterial()" style="width: 100px;"><?php echo $lang_header_search; ?></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-padding-0-40 clearfix">
     <div class="container">
         <div class="row justify-content-center">
             <!-- Single Catagory -->

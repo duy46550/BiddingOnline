@@ -21,6 +21,7 @@ function addAccountClear() {
 }
 
 function Edit_Save() {
+    console.log('btn edit save');
     $.ajax({
         url: "data/accounts/account_edit.php",
         type: "post",

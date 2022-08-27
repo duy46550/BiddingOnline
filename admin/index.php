@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +9,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/jquery.dataTables.min.css"> -->
+
     <!-- Font Awesome JS -->
     <script src="font/solid.js"></script>
     <script src="font/fontawesome.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/jquery.dataTables.min.js"></script> -->
 </head>
 <?php
 session_start();
@@ -28,6 +30,9 @@ if ($_SESSION['lang'] == 'vn') {
     include('../language/en.php');
 }
 @$r = @$_REQUEST['r'];
+if(@$_SESSION["user_genre"] == '' || @$_SESSION["user_genre"] == "Guest"){
+    echo "<script> window.location.href = '../index.php'; </script>";
+}
 ?>
 
 <body>
@@ -49,14 +54,16 @@ if ($_SESSION['lang'] == 'vn') {
                     } ?>>
                     <a href="index.php?r=lr">Danh Sách Báo Giá</a>
                 </li>
+                <?php if(@$_SESSION["username"] == "administrator"){ ?>
                 <li <?php if (@$r == 'ac') {
                         echo "class='active'";
-                    } ?>>
+                    } ?> >
                     <a href="index.php?r=ac">Quản Lý Tài Khoản</a>
                 </li>
+                <?php } ?>
             </ul>
             <ul class="list-unstyled CTAs">
-                <li>
+                <li> 
                     <a href="../index.php" class="article"><i class="fas fa-caret-left"></i> Trở lại trang chủ</a>
                 </li>
             </ul>
@@ -66,7 +73,7 @@ if ($_SESSION['lang'] == 'vn') {
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-bars"></i>
-                        <span>Bảng Điều Khiển</span>
+                        <!-- <span>Bảng Điều Khiển</span> -->
                     </button>
                     <button class="btn btn-light d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-angle-down"></i>
@@ -90,7 +97,7 @@ if ($_SESSION['lang'] == 'vn') {
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="../index.php"><i class="fas fa-home"></i> Trang Chủ</a>
                                     <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-sync-alt"></i> Đổi Mật Khẩu</a>
-                                    <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"> <i class="fas fa-power-off"></i> Đăng Xuất</a>
+                                    <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="../logout.php"> <i class="fas fa-power-off"></i> Đăng Xuất</a>
                                 </div>
                             </li>
                         </ul>

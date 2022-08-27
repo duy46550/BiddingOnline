@@ -10,6 +10,7 @@ $lang_header_category_machine = "Máy móc";
 $lang_header_contact = "Liên Hệ";
 $lang_header_search = "Tìm Kiếm";
 $lang_header_sign = "Đăng Nhập";
+$lang_header_sign_email = "Tên Đăng Nhập";
 $lang_header_sign_pass = "Mật Khẩu";
 $lang_header_sign_footer = "Bạn chưa có tài khoản?";
 $lang_header_language = "Ngôn Ngữ";

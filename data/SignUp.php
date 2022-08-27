@@ -33,17 +33,19 @@ if($comany_name == ""){
         echo "<div class='alert alert-danger' role='alert'> Email Đã Tồn Tại </div>";
         return;
     }
-    
+    $chectaxcode = "SELECT * FROM company where company_taxcode = '".$company_taxcode."'";
+    $rs = odbc_exec($conn_bid,$chectaxcode);
+    if (odbc_num_rows($rs) > 0) {
+        echo "<div class='alert alert-danger' role='alert'> Mã Số Thuế Đã Tồn Tại </div>";
+        return;
+    }
     $options = [
-        'cost' => 10,
+        'cost' => 11,
     ];
     //hash password with bcrypt
-    $company_password = password_hash($company_password, PASSWORD_BCRYPT, $options) . "\n";
-    $update_user = '';
-    if (@$_SESSION['update_user'] != '') {
-        $update_user = @$_SESSION['update_user'];
-    }
-    $insertUser = "INSERT INTO users VALUES('" . $company_email . "','" . $company_password . "','1','Guest','1','".$update_user."',getdate())";
+    $company_password = password_hash($company_password, PASSWORD_BCRYPT, $options);
+    
+    $insertUser = "INSERT INTO users VALUES('" . $company_email . "','" . $company_password . "','1','Guest','1','',getdate())";
     $rs = odbc_exec($conn_bid,  $insertUser);
 
     $insertCompany = "INSERT INTO company VALUES ('".$company_email."','".$comany_name."','".$company_phone."','".$company_address."','".$company_taxcode."',getdate())";

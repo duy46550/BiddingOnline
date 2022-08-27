@@ -34,28 +34,19 @@ if ($_SESSION['lang'] == 'vn') {
 
 <body>
     <header class="header_area">
-        <nav class="navbar navbar-expand-lg  headernavbar" style="background-color: #636E72;color:white ;">
-            <a class="nav-brand font-bold" href="index.php" style="font-size: 30px;">LAC TY II &nbsp;&nbsp;</a>
+        <nav class="navbar navbar-expand-lg  headernavbar" style="background-color: white;">
+            <!-- <a class="nav-brand font-bold" href="index.php" style="font-size: 18px;">Trang Chủ &nbsp;&nbsp;</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color: white;"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse user-login-color" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="index.php" style="font-size: 15px;"><?php echo $lang_header_home; ?> <span class="sr-only">(current)</span></a>
-                    </li> -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"> <?php echo $lang_header_category; ?></a>
-                        <div class="dropdown-menu dropdown-cate">
-                            <a class="dropdown-item" href="material.php?category=1" style="font-size: 15px;"><?php echo $lang_header_category_paper; ?></a>
-                            <a class="dropdown-item" href="material.php?category=2" style="font-size: 15px;"><?php echo $lang_header_category_fabric; ?></a>
-                            <a class="dropdown-item" href="material.php?category=3" style="font-size: 15px;"><?php echo $lang_header_category_leather; ?></a>
-                            <a class="dropdown-item" href="material.php?category=4" style="font-size: 15px;"><?php echo $lang_header_category_machine; ?></a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php" style="font-size: 15px; color:black;"><?php echo $lang_header_home; ?> <span class="sr-only">(current)</span></a>
                     </li>
-                    <li><a class="nav-link" href="#" style="font-size: 15px;"><?php echo $lang_header_contact; ?> </a></li>
+                    <li><a class="nav-link" href="#" style="font-size: 15px; color:black;"><?php echo $lang_header_contact; ?> </a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"> <?php echo $lang_header_language; ?></a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px; color:black;"> <?php echo $lang_header_language; ?></a>
                         <div class="dropdown-menu dropdown-cate">
                             <a class="dropdown-item" href="index.php?lang=en" style="font-size: 15px;"><?php echo $lang_header_language_e;
                                                                                                         if ($_SESSION['lang'] == 'en') {
@@ -68,31 +59,30 @@ if ($_SESSION['lang'] == 'vn') {
                         </div>
                     </li>
                 </ul>
-                <!-- <div class="search-area">
-                    <form action="#" method="post">
-                        <input type="search" name="search" id="headerSearch" placeholder="<?php echo $lang_header_search; ?>" autocomplete="off">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
-                </div> -->
-                <div class="user-login-color  user-login">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="#" data-toggle="modal" data-target="#modalLoginForm" style="font-size: 15px;"><?php echo $lang_header_sign; ?></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="user-login-color user-account">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px;"><i class="fas fa-user"></i>&nbsp; <?php echo $lang_header_account; ?></a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="./admin/index.php"><i class="fas fa-user-edit"></i> <?php echo $lang_header_account_dashboard; ?></a>
-                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-sync-alt"></i> <?php echo $lang_header_account_resetpassword; ?></a>
-                                <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-power-off"></i> <?php echo $lang_header_account_logout; ?></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <?php if (@$_SESSION['username'] == '') { ?>
+                    <div class="user-login-color  user-login">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="#" data-toggle="modal" data-target="#modalLoginForm" style="font-size: 15px; color:black;"><?php echo $lang_header_sign; ?></a>
+                            </li>
+                        </ul>
+                    </div>
+                <?php } else { ?>
+                    <div class="user-login-color user-account">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" style="font-size: 15px; color:black;"><i class="fas fa-user"></i>&nbsp; <?php echo $lang_header_account; ?></a>
+                                <div class="dropdown-menu">
+                                    <?php if (@$_SESSION["user_genre"] != "Guest") { ?>
+                                        <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="./admin/index.php"><i class="fas fa-user-edit"></i> <?php echo $lang_header_account_dashboard; ?></a>
+                                    <?php } ?>
+                                    <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="#"><i class="fas fa-sync-alt"></i> <?php echo $lang_header_account_resetpassword; ?></a>
+                                    <a class="dropdown-item" style="line-height: 35px;text-align: left; font-size: 15px;" href="./logout.php"><i class="fas fa-power-off"></i> <?php echo $lang_header_account_logout; ?></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <?php } ?>
             </div>
         </nav>
     </header>
@@ -107,28 +97,26 @@ if ($_SESSION['lang'] == 'vn') {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="index.php" method="post">
-                    <div class="modal-body mx-3">
-                        <!-- <div class="alert alert-danger" role="alert">
-                            <strong>Username</strong> or <strong>password</strong> incorrect!
-                        </div> -->
+                <div class="modal-body mx-3">
+                    <div id="result-login"></div>
+                    <form>
                         <div class="md-form mb-4">
-                            <b><Label>Email</Label></b>
+                            <b><Label><?php echo $lang_header_sign_email; ?></Label></b>
                             <i class="fas fa-envelope"></i>
-                            <input type="email" id="defaultForm-email" required="true" class="form-control validate" placeholder="Email">
+                            <input type="text" id="email" required="true" class="form-control validate" placeholder="Email">
                         </div>
                         <div class="md-form mb-4">
                             <b><Label><?php echo $lang_header_sign_pass; ?></Label></b>
                             <i class="fas fa-lock"></i>
-                            <input type="password" id="defaultForm-pass" required="true" class="form-control validate" placeholder="<?php echo $lang_header_sign_pass; ?>" autocomplete="off">
+                            <input type="password" id="pass" required="true" class="form-control validate" placeholder="<?php echo $lang_header_sign_pass; ?>" autocomplete="off">
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary"><?php echo $lang_header_sign; ?></button>
-                        </div>
+                    </form>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary" onclick="signIn()"><?php echo $lang_header_sign; ?></button>
                     </div>
-                </form>
+                </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <div class="signup-section"><?php echo $lang_header_sign_footer; ?> <a href="#a" class="text-info" data-dismiss="modal" data-toggle="modal" data-target="#modalRegisterForm"> <?php echo $_lang_header_signup; ?></a>.</div>
+                    <div class="signup-section"><?php echo $lang_header_sign_footer; ?> <a href="#" class="text-info" data-dismiss="modal" data-toggle="modal" data-target="#modalRegisterForm"> <?php echo $_lang_header_signup; ?></a>.</div>
                 </div>
             </div>
         </div>
@@ -143,9 +131,8 @@ if ($_SESSION['lang'] == 'vn') {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
-                    <div id="result"> </div>
+                    <div id="result"></div>
                     <form>
                         <div class="md-form mb-3">
                             <b><Label><?php echo $_lang_header_signup_company; ?></Label></b>
@@ -182,7 +169,6 @@ if ($_SESSION['lang'] == 'vn') {
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary" onclick="signUp()"><?php echo $_lang_header_signup_footer; ?></button><!-- data-toggle="modal" data-target="#notification" -->
                 </div>
-
             </div>
         </div>
     </div>
@@ -191,16 +177,14 @@ if ($_SESSION['lang'] == 'vn') {
     <div class="modal fade" id="notification" tabindex="-1" role="dialog" style="font-size: 18px;margin-top: 10px;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header" >
+                <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" style="font-family: sans-serif;"><b>Thông Báo</b></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="result-notification">
-
-                    </div>
+                    <div id="result-notification"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

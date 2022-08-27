@@ -50,22 +50,22 @@ if (isset($_POST['userNameQ'])) {
                     } else {
                         echo '<td><span class="badge badge-danger rounded-pill d-inline"> Khóa</span></td>';
                     }
-                    echo '<td>' .  odbc_result($rs, 'update_user'). '</td>';
+                    echo '<td>' .  odbc_result($rs, 'update_user') . '</td>';
                     echo '<td>' . date("Y-m-d H:i:s", strtotime(odbc_result($rs, 'update_date'))) . '</td>';
                     echo '<td>';
-                    echo ' <button type="button" id = "edit_' . $un . '" class="btn btn-warning btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-toggle="modal" data-target="#editAccountModal"> <i class="fas fa-edit"></i> Chỉnh sửa</button>';
-                    echo ' <button type="button" id = "edit_pw_' . $un . '" class="btn btn-warning btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-toggle="modal" data-target="#editPassword"> <i class="fas fa-edit"></i>Đổi mật khẩu</button>';
-                    echo ' <button type="button" id = "delete_' . $un . '" class="btn btn-danger btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark"> <i class="fas fa-minus"></i> Xóa</button>';
+                    echo " <button type='button' id = 'edit_" . $un . "' class='btn btn-warning btn-rounded btn-sm fw-bold' data-mdb-ripple-color='dark' data-toggle='modal' data-target='#editAccountModal'> <i class='fas fa-edit'></i> Chỉnh sửa</button>";
+                    echo " <button type='button' id = 'edit_pw_" . $un . "'  class='btn btn-warning btn-rounded btn-sm fw-bold' data-mdb-ripple-color='dark' data-toggle='modal' data-target='#editPassword'> <i class='fas fa-edit'></i>Đổi mật khẩu</button>";
+                    echo " <button type='button' id = 'delete_" . $un . "' class='btn btn-danger btn-rounded btn-sm fw-bold' data-mdb-ripple-color='dark'> <i class='fas fa-minus'></i> Xóa</button>";
                     echo '</td>';
                     echo '<script>$(document).ready(function() {';
-                    echo '$("#delete_' . $un . '").click(function() {
-                                if (confirm("Are you sure, you want to delete?")) {
+                    echo "$('#delete_" . $un . "').click(function() {
+                                if (confirm('Are you sure, you want to delete?')) {
                                     $.ajax({
-                                        url: "data/accounts/account_del.php",
-                                        type: "post",
-                                        dataType: "text",
+                                        url: 'data/accounts/account_del.php',
+                                        type: 'post',
+                                        dataType: 'text',
                                         data: {
-                                            userName: ' . $un . ',
+                                            userName: '" . $un . "',
                                         },
                                         success: function (result) {
                                             alert(result);
@@ -73,34 +73,35 @@ if (isset($_POST['userNameQ'])) {
                                         }
                                     });
                                 }
-                            });';
-                    echo '$("#edit_' . $un . '").click(function() {
-                            $.ajax({
-                                method: "POST",
-                                url: "data/accounts/account_edit_load.php",
-                                data: {
-                                    userName: ' . $un . ',
-                                    lv: '.odbc_result($rs, 'user_lv').',
-                                    st: '.odbc_result($rs, 'user_status').',
-                                },
-                                success: function (result) {
-                                    $("#edit-modal-content").html(result);
-                                }
-                            });
-                        });';
-                        echo '$("#edit_pw_' . $un . '").click(function() {
-                            $.ajax({
-                                method: "POST",
-                                url: "data/accounts/account_rs_pass_load.php",
-                                data: {
-                                    userName: ' . $un . ',
-                                },
-                                success: function (result) {
-                                    $("#edit-pass-content").html(result);
-                                }
-                            });
-                        });';
-                    echo    '});</script>';
+                            });";
+                    echo "$('#edit_" . $un . "').click(function() {
+                        console.log('edit btn');
+                        $.ajax({
+                            method: 'POST',
+                            url: 'data/accounts/account_edit_load.php',
+                            data: {
+                                userName: '" . $un . "',
+                                lv: ' " . odbc_result($rs, 'user_lv') . " ',
+                                st: ' " . odbc_result($rs, 'user_status') . "',
+                            },
+                            success: function (result) {
+                                $('#edit-modal-content').html(result);
+                            }
+                        });
+                    });";
+                    echo "$('#edit_pw_" . $un . "').click(function() {
+                        $.ajax({
+                            method: 'POST',
+                            url: 'data/accounts/account_rs_pass_load.php',
+                            data: {
+                                userName: '" . $un . "',
+                            },
+                            success: function (result) {
+                                $('#edit-pass-content').html(result);
+                            }
+                        });
+                    });";
+                    echo   '});</script>';
                 }
             } ?>
 
@@ -175,7 +176,7 @@ if (isset($_POST['userNameQ'])) {
                 </button>
             </div>
             <div class="modal-body" id="edit-modal-content">
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
@@ -196,7 +197,7 @@ if (isset($_POST['userNameQ'])) {
                 </button>
             </div>
             <div class="modal-body" id="edit-pass-content">
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

@@ -10,6 +10,7 @@ $lang_header_category_machine = "Machine";
 $lang_header_contact = "Contact";
 $lang_header_search = "Search";
 $lang_header_sign = "Sign In";
+$lang_header_sign_email = "Username";
 $lang_header_sign_pass = "Password";
 $lang_header_sign_footer = "Not a member yet?";
 $lang_header_language = "Language";
